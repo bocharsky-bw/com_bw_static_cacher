@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <fieldset name="bw_static_cacher"
+        label="BW Static Cacher"
+        description="Настройки компонента com_bw_static_cacher">
+
+        <field
+            name="links_limit"
+            type="text"
+            filter="integer"
+            label="Макс. количество ссылок"
+            description="Максимальное количество обрабатываемых и кэшируемых ссылок за один проход кэшера"
+            default="5"
+        />
+    </fieldset>
+
+    <fieldset
+        name="permissions"
+        label="JCONFIG_PERMISSIONS_LABEL"
+        description="JCONFIG_PERMISSIONS_DESC"
+        >
+
+        <field
+            name="rules"
+            type="rules"
+            label="JCONFIG_PERMISSIONS_LABEL"
+            class="inputbox"
+            filter="rules"
+            validate="rules"
+            component="com_banners"
+            section="component" />
+    </fieldset>
+</config>

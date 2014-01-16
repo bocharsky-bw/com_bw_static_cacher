@@ -1,0 +1,1 @@
+DROP TABLE IF EXISTS `#__bw_static_cacher_links`;

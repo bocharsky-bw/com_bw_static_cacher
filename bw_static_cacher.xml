@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="component" method="upgrade">
+	<name>bw_static_cacher</name>
+	<creationDate>22.12.2013</creationDate>
+	<author>Bocharsky Victor</author>
+	<authorEmail>mail@brainforce.kiev.ua</authorEmail>
+	<authorUrl>http://j.brainforce.kiev.ua/</authorUrl>
+	<copyright>bw_static_cacher</copyright>
+	<license>bw_static_cacher</license>
+	<version>1.0.0</version>
+	<description>bw_static_cacher</description>
+
+	<!-- Public front end files -->
+	<files folder="components/com_bw_static_cacher">
+		<filename>bw_static_cacher.php</filename>
+		<filename>BwStaticCacher.php</filename>
+		<filename>controller.php</filename>
+		<filename>index.html</filename>
+		<folder>views</folder>
+	</files>
+
+	<!-- SQL query files to execute on installation -->
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install/mysql/install.sql</file>
+			<file driver="mysql">sql/install/mysql/install.sql</file>
+			<file driver="mysqli" charset="utf8">sql/install/mysql/install.sql</file>
+			<file driver="mysqli">sql/install/mysql/install.sql</file>
+		</sql>
+	</install>
+
+	<!-- SQL query files to execute on uninstallation -->
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install/mysql/uninstall.sql</file>
+			<file driver="mysql">sql/install/mysql/uninstall.sql</file>
+			<file driver="mysqli" charset="utf8">sql/install/mysql/uninstall.sql</file>
+			<file driver="mysqli">sql/install/mysql/uninstall.sql</file>
+		</sql>
+	</uninstall>
+	
+	<!-- SQL files to run on update -->
+	<update>
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql</schemapath>
+		</schemas>
+	</update>
+
+	<!-- Administrator back-end section -->
+	<administration>
+		<!-- Back-end files -->
+		<files folder="administrator/components/com_bw_static_cacher">
+			<filename>bw_static_cacher.php</filename>
+			<filename>config.xml</filename>
+			<filename>controller.php</filename>
+			<filename>index.html</filename>
+			<folder>helpers</folder>
+			<folder>sql</folder>
+			<folder>views</folder>
+		</files>
+	</administration>
+</extension>

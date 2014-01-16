@@ -1,0 +1,16 @@
+/*
+
+!/.gitignore
+!/bw_static_cacher.xml
+!/LICENSE.txt
+!/README.md
+
+!/administrator/
+/administrator/*
+!/administrator/components/
+/administrator/components/*
+!/administrator/components/com_bw_static_cacher/
+
+!/components/
+/components/*
+!/components/com_bw_static_cacher/
