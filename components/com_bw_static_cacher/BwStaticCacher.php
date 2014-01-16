@@ -47,7 +47,6 @@ class BwStaticCacher {
     }
     
     public function init($requestUri = NULL, $httpHost = NULL) {
-        //if ( ! $this->isMethod('GET') ) return; //???????????????
         $this->setHttpHost($httpHost);
         $this->setRequestUri($requestUri);
         if ( ! preg_match('/^(.*\/)?([^\/]+)$/', $this->cachePath, $matches)) {
@@ -62,9 +61,13 @@ class BwStaticCacher {
     }
     
     /**
-     * Поиск закешированной страницы и ее отображение
+     * Поиск закешированной страницы и ее отображение только при GET методе
      */
     public function find() {
+        if ( ! $this->isMethod('GET') ) {
+            
+            return NULL;
+        }
         if ( file_exists($this->dir . $this->filename) ) {
             $this->content = file_get_contents($this->dir . $this->filename);
             print $this->content;
