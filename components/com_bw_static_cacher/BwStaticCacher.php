@@ -68,11 +68,14 @@ class BwStaticCacher {
             
             return NULL;
         }
-        if ( file_exists($this->dir . $this->filename) ) {
-            $this->content = file_get_contents($this->dir . $this->filename);
-            print $this->content;
-            die;
-        }
+		
+        if (file_exists($this->dir . $this->filename)) {
+			$expires = 3600;
+			header('Expires: '. gmdate('D, d M Y H:i:s', time() + $expires) .' GMT');
+			header('Cache-Control: public, max-age='. $expires .'');
+			readfile($this->dir . $this->filename);
+			exit;
+		}
     }
     
     public function cache() {
