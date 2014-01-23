@@ -64,7 +64,7 @@ class BwStaticCacher {
      * Поиск закешированной страницы и ее отображение только при GET методе
      */
     public function find() {
-        if ( ! $this->isMethod('GET') ) {
+        if ( ! $this->isMethod('GET') || isset($_GET['--force']) ) {
             
             return NULL;
         }
