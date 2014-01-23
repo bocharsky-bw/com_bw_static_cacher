@@ -59,7 +59,7 @@ if ( count($links) == 0 ) {
 } else {
     foreach ($links as $link) {
         $cacher = BwStaticCacher::getInstance()->init($link['request_uri']);
-        
+        $cacher->clearUrlCache(); // Удаление старого кэша страницы перед перегенерацией
         if ( $cacher->cache() ) { // Если страница успешно закеширована
             $cacher->parse(); // парсим страницу для поиска новых ссылок
             
