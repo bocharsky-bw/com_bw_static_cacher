@@ -79,7 +79,15 @@ class BwStaticCacher {
     }
     
     public function cache() {
-        $this->content = file_get_contents('http://'. $this->httpHost . $this->requestUri);
+		$opts = array('http' =>
+			array(
+				'method' => "GET",
+				'timeout' => 25, // Время ожидания загрузки старницы
+			)
+		);
+		$context = stream_context_create($opts);
+		
+        $this->content = file_get_contents('http://'. $this->httpHost . $this->requestUri, FALSE, $context);
         if ( ! $this->content) {
             return FALSE;
         }
